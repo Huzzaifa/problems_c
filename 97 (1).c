@@ -1,6 +1,3 @@
-
-// Find even prime numbers  from first n integers your program should should stop only when user wants it.
-
 #include <stdio.h>
 #include <cs50.h>
 
@@ -12,10 +9,11 @@ void prime_numbers (int n,int *p);
 int main(void)
 {
 
-    while (true)
+    int Integers;
 
+    while (true)
  {
-      int Integers;
+      int *prime = NULL;
     do
     {
         Integers = get_int("Integers: ");
@@ -27,22 +25,26 @@ int main(void)
               break;
           }
 
-     int *prime = malloc(Integers*sizeof(int));
+     prime = malloc(Integers*sizeof(int));
 
       prime_numbers(Integers, &prime[0]);
 
       int Even_prime[index];
       int index_Even = 0;
 
-     for(int i = 0; i < index; i= i + 2)
+     for(int i = 0; i <index; i= i + 2)
      {
+
          Even_prime[index_Even]= prime[i];
          printf("%i\n",Even_prime[index_Even]);
-         b++;
+         index_Even ++;
 
      }
-      free(prime);
+     free(prime);
+     index = 0;
+
  }
+
 }
 
 void prime_numbers (int n, int *p)
